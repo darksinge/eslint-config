@@ -1,0 +1,22 @@
+{
+  "name": "@darksinge/eslint-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darksinge/eslint-config.git"
+  },
+  "homepage": "https://github.com/darksinge/eslint-config#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1"
+  },
+  "peerDependencies": {
+    "eslint": "^8.38.0",
+    "prettier": "^2.8.7"
+  }
+}
