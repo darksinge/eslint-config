@@ -1,8 +1,12 @@
 {
   "name": "@darksinge/eslint-config",
   "version": "1.0.0",
-  "description": "",
+  "description": "eslint and prettier config",
+  "type": "commonjs",
   "main": "index.js",
+  "bin": {
+    "darksinge-eslint-config": "./bin/cli.js"
+  },
   "scripts": {},
   "repository": {
     "type": "git",
@@ -12,6 +16,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
+    "commander": "^10.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1"
   },
