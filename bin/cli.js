@@ -16,7 +16,7 @@ program.requiredOption('--init', 'setup the config', false).parse(process.argv)
 const options = program.opts()
 
 const eslintrcPaths = {
-  source: path.join(__dirname, '..', '.eslintrc.js'),
+  source: path.join(__dirname, '..', '.eslintrc-config.js'),
   dest: path.resolve(process.cwd(), '.eslintrc.js'),
 }
 
