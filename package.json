@@ -1,6 +1,6 @@
 {
   "name": "@darksinge/eslint-config",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "eslint and prettier config",
   "type": "commonjs",
   "main": "index.js",
