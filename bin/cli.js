@@ -56,10 +56,8 @@ const main = async () => {
 
   // don't install this package within itself
   if (packageJson.name !== thisPackageName) {
-    if (
-      !packageJson.dependencies[thisPackageName] ||
-      !packageJson.devDependencies[thisPackageName]
-    ) {
+    const { dependencies = {}, devDependencies = {} } = packageJson
+    if (!dependencies[thisPackageName] || !devDependencies[thisPackageName]) {
       execSync('npm install @darksinge/eslint-config --save-dev')
     }
   }
