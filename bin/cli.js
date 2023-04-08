@@ -5,13 +5,18 @@ const { execSync } = require('node:child_process')
 const readline = require('node:readline')
 const { Command } = require('commander')
 const packageJson = require(path.resolve(process.cwd(), 'package.json'))
+const { name: thisPackageName } = require(path.join(
+  __dirname,
+  '..',
+  'package.json',
+))
 
 const program = new Command()
-program.option('--init', 'setup the config', false).parse(process.argv)
+program.requiredOption('--init', 'setup the config', false).parse(process.argv)
 const options = program.opts()
 
 const eslintrcPaths = {
-  source: path.join(__dirname, '..', '.eslintrc.dist.js'),
+  source: path.join(__dirname, '..', '.eslintrc.js'),
   dest: path.resolve(process.cwd(), '.eslintrc.js'),
 }
 
@@ -20,8 +25,6 @@ const eslintConfig = fs.readFileSync(eslintrcPaths.source)
 const writeConfig = () => {
   fs.writeFileSync(eslintrcPaths.dest, eslintConfig)
 }
-
-const thisPackage = '@darksinge/eslint-config'
 
 const shouldWriteConfig = () => {
   const rl = readline.createInterface({
@@ -52,10 +55,10 @@ const main = async () => {
   }
 
   // don't install this package within itself
-  if (packageJson.name !== thisPackage) {
+  if (packageJson.name !== thisPackageName) {
     if (
-      !packageJson.dependencies[thisPackage] ||
-      !packageJson.devDependencies[thisPackage]
+      !packageJson.dependencies[thisPackageName] ||
+      !packageJson.devDependencies[thisPackageName]
     ) {
       execSync('npm install @darksinge/eslint-config --save-dev')
     }
